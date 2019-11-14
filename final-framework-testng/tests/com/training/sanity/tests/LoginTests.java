@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -47,9 +48,14 @@ public class LoginTests {
 	}
 	@Test
 	public void validLoginTest() {
-		loginPOM.sendUserName("admin");
+		/*loginPOM.sendUserName("admin");
 		loginPOM.sendPassword("admin@123");
 		loginPOM.clickLoginBtn(); 
+		screenShot.captureScreenShot("First");*/
+		
+		driver.findElement(By.id("login")).sendKeys("admin");
+		driver.findElement(By.id("password")).sendKeys("admin@123");
+		driver.findElement(By.id("form-login_submitAuth")).click();
 		screenShot.captureScreenShot("First");
 	}
 }
